@@ -1,2 +1,16 @@
-# daily-tech-research
-Daily AI Agent technology research: source-grounded Chinese deep dives, release radar, and automated GitHub Actions publishing.
+# Daily Tech Research · Agent 技术研究
+
+每日北京时间 **07:15** 由 GitHub Actions 收集 AI Agent 技术进展，生成带原始证据的中文拆解，并自动提交到本仓库。
+
+> 项目正在初始化。深度分析需要配置模型 API 密钥；不含密钥，不使用企业内部资料。
+
+## 研究范围
+
+Agent Harness / Runtime、工具调用、上下文与记忆、状态与 checkpoint、长任务恢复、任务编排、评测。
+
+## 质量边界
+
+- 仅使用公开资料；版本源码锁定 commit。
+- 区分事实、源码推断、设计建议与待核验项。
+- 没有新材料时不编造更新；没有模型凭证时不冒充完成深度分析。
+- 复现实验默认未执行，AI 分析必须人工复核。
