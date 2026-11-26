@@ -1,0 +1,18 @@
+{
+  "timezone": "Asia/Shanghai",
+  "lookback_hours": 72,
+  "max_daily_topics": 2,
+  "max_candidates": 24,
+  "max_source_files": 4,
+  "max_file_bytes": 180000,
+  "source_excerpt_chars": 9000,
+  "max_output_tokens": 7000,
+  "repositories": [
+    "langchain-ai/langgraph",
+    "openai/openai-agents-python",
+    "anthropics/claude-agent-sdk-python",
+    "google/adk-python"
+  ],
+  "keywords": ["agent", "runtime", "harness", "tool", "memory", "context", "checkpoint", "interrupt", "session", "durable", "workflow", "evaluation"],
+  "arxiv_query": "ti:\"AI agent\" OR ti:\"language model agent\" OR ti:\"agent memory\" OR ti:\"agent evaluation\" OR ti:\"agentic workflow\""
+}
