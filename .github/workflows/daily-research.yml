@@ -1,0 +1,71 @@
+name: Daily Agent Research
+
+on:
+  schedule:
+    # UTC 23:15 = Asia/Shanghai 次日 07:15。
+    - cron: '15 23 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'auto: 有凭证则深度研究，否则来源雷达；full: 必须有凭证；collect: 仅来源雷达'
+        type: choice
+        options: [auto, full, collect]
+        default: auto
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-agent-research
+  cancel-in-progress: false
+
+jobs:
+  research:
+    if: github.repository == 'chenliansheng2026/daily-tech-research'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run offline unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Collect evidence and write research
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_MODEL: ${{ vars.LLM_MODEL }}
+          LLM_BASE_URL: ${{ vars.LLM_BASE_URL || 'https://api.openai.com/v1' }}
+          LLM_JSON_MODE: ${{ vars.LLM_JSON_MODE || 'true' }}
+          REQUESTED_MODE: ${{ inputs.mode || 'auto' }}
+        run: |
+          MODE="$REQUESTED_MODE"
+          if [ "$MODE" = auto ]; then
+            if [ -n "$LLM_API_KEY" ] && [ -n "$LLM_MODEL" ]; then
+              MODE=full
+            else
+              MODE=collect
+              printf '%s\n' '::warning::缺少 LLM_API_KEY / LLM_MODEL：本次仅生成来源雷达，不是深度技术拆解。'
+            fi
+          fi
+          python src/research.py --mode "$MODE"
+      - name: Commit generated documents only
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- research data
+          if git diff --cached --quiet; then
+            printf '%s\n' 'No document changes; skip commit.'
+            exit 0
+          fi
+          git commit -m 'docs: publish daily Agent research [skip ci]'
+          git pull --rebase origin main
+          git push origin HEAD:main
+      - name: Run summary
+        if: always()
+        run: |
+          printf '%s\n' '请检查本次运行状态。只有 Commit 步骤成功才表示日报已推送。' >> "$GITHUB_STEP_SUMMARY"
