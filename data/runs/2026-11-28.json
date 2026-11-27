@@ -1,0 +1,63 @@
+{
+  "day": "2026-11-28",
+  "mode": "collect",
+  "fetched_at": "2026-11-27T23:59:15.259151+00:00",
+  "errors": [],
+  "candidate_count": 9,
+  "records": [
+    {
+      "candidate": {
+        "id": "16f11be211a4bdda5000",
+        "kind": "release",
+        "repo": "google/adk-python",
+        "title": "v2.15.1",
+        "url": "https://github.com/google/adk-python/releases/tag/v2.15.1",
+        "published": "2026-11-25T01:01:43Z",
+        "tag": "v2.15.1",
+        "prerelease": false,
+        "text": "## [2.15.1](https://github.com/google/adk-python/compare/v2.15.0...v2.15.1) (2026-11-24)\n\n\n### Highlights\n\nThis release focuses on stability and integration bug fixes across model sampling, agent-to-agent streaming, tool call validation, and instruction routing.\n\n* **Models**: Maintain compatibility across Anthropic SDK versions 1.x and 2.x when configuring Claude sampling settings. ([debf43d](https://github.com/google/adk-python/commit/debf43da4571dd8ba52a663d96e5ae2601030212))\n* **A2A**: Fix streamed output persistence behavior for RemoteA2aAgent calls to prevent incomplete output states. ([c4bdc84](https://github.com/google/adk-python/commit/c4bdc846f2646549425f5ac5d98ea0eb7faebd96))\n* **Tools**: Improve error reporting when Apigee tool calls receive arguments that are not JSON objects. ([6a4ba6a](https://github.com/google/adk-python/commit/6a4ba6adfd01d1c727729b4d6b05e93e23c454c7))\n* **Routing**: Ensure reliable dynamic instruction gating by tracking transient instructions correctly. ([347dca6](https://github.com/google/adk-python/commit/347dca6b282dc401ac6203c4581be7ab9e292b82))\n\n### Bug Fixes\n\n* **a2a:** revert persisting streamed RemoteA2aAgent output without last_chunk ([c4bdc84](https://github.com/google/adk-python/commit/c4bdc846f2646549425f5ac5d98ea0eb7faebd96)), closes [#7255](https://github.com/google/adk-python/issues/7255)\n* **models:** handle Claude sampling settings on anthropic 1.x and 2.x ([debf43d](https://github.com/google/adk-python/commit/debf43da4571dd8ba52a663d96e5ae2601030212))\n* report Apigee tool calls whose arguments are not a JSON object ([6a4ba6a](https://github.com/google/adk-python/commit/6a4ba6adfd01d1c727729b4d6b05e93e23c454c7)), closes [#7740](https://github.com/google/adk-python/issues/7740)\n* track transient instructions and gate dynamic instruction routing ([347dca6](https://github.com/google/adk-python/commit/347dca6b282dc401ac6203c4581be7ab9e292b82)), closes [#8217](https://github.com/google/adk-python/issues/8217)\n\n",
+        "score": 12
+      },
+      "evidence": [
+        {
+          "id": "S1",
+          "url": "https://github.com/google/adk-python/releases/tag/v2.15.1",
+          "kind": "release",
+          "title": "v2.15.1",
+          "published": "2026-11-25T01:01:43Z",
+          "text": "## [2.15.1](https://github.com/google/adk-python/compare/v2.15.0...v2.15.1) (2026-11-24)\n\n\n### Highlights\n\nThis release focuses on stability and integration bug fixes across model sampling, agent-to-agent streaming, tool call validation, and instruction routing.\n\n* **Models**: Maintain compatibility across Anthropic SDK versions 1.x and 2.x when configuring Claude sampling settings. ([debf43d](https://github.com/google/adk-python/commit/debf43da4571dd8ba52a663d96e5ae2601030212))\n* **A2A**: Fix streamed output persistence behavior for RemoteA2aAgent calls to prevent incomplete output states. ([c4bdc84](https://github.com/google/adk-python/commit/c4bdc846f2646549425f5ac5d98ea0eb7faebd96))\n* **Tools**: Improve error reporting when Apigee tool calls receive arguments that are not JSON objects. ([6a4ba6a](https://github.com/google/adk-python/commit/6a4ba6adfd01d1c727729b4d6b05e93e23c454c7))\n* **Routing**: Ensure reliable dynamic instruction gating by tracking transient instructions correctly. ([347dca6](https://github.com/google/adk-python/commit/347dca6b282dc401ac6203c4581be7ab9e292b82))\n\n### Bug Fixes\n\n* **a2a:** revert persisting streamed RemoteA2aAgent output without last_chunk ([c4bdc84](https://github.com/google/adk-python/commit/c4bdc846f2646549425f5ac5d98ea0eb7faebd96)), closes [#7255](https://github.com/google/adk-python/issues/7255)\n* **models:** handle Claude sampling settings on anthropic 1.x and 2.x ([debf43d](https://github.com/google/adk-python/commit/debf43da4571dd8ba52a663d96e5ae2601030212))\n* report Apigee tool calls whose arguments are not a JSON object ([6a4ba6a](https://github.com/google/adk-python/commit/6a4ba6adfd01d1c727729b4d6b05e93e23c454c7)), closes [#7740](https://github.com/google/adk-python/issues/7740)\n* track transient instructions and gate dynamic instruction routing ([347dca6](https://github.com/google/adk-python/commit/347dca6b282dc401ac6203c4581be7ab9e292b82)), closes [#8217](https://github.com/google/adk-python/issues/8217)\n\n"
+        }
+      ],
+      "warnings": [],
+      "analysis": null,
+      "usage": {}
+    },
+    {
+      "candidate": {
+        "id": "06ffd4e36d917758653d",
+        "kind": "release",
+        "repo": "anthropics/claude-agent-sdk-python",
+        "title": "v0.2.189",
+        "url": "https://github.com/anthropics/claude-agent-sdk-python/releases/tag/v0.2.189",
+        "published": "2026-11-25T02:22:26Z",
+        "tag": "v0.2.189",
+        "prerelease": false,
+        "text": "\n---\n\n**PyPI:** https://pypi.org/project/claude-agent-sdk/0.2.189/\n\n```bash\npip install claude-agent-sdk==0.2.189\n```\n",
+        "score": 11
+      },
+      "evidence": [
+        {
+          "id": "S1",
+          "url": "https://github.com/anthropics/claude-agent-sdk-python/releases/tag/v0.2.189",
+          "kind": "release",
+          "title": "v0.2.189",
+          "published": "2026-11-25T02:22:26Z",
+          "text": "\n---\n\n**PyPI:** https://pypi.org/project/claude-agent-sdk/0.2.189/\n\n```bash\npip install claude-agent-sdk==0.2.189\n```\n"
+        }
+      ],
+      "warnings": [],
+      "analysis": null,
+      "usage": {}
+    }
+  ]
+}
